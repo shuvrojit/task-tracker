@@ -1,18 +1,41 @@
 import styled from "styled-components"
-import ClientImage from "/public/client-image.jpg"
-import ProfileImage from "/public/profile-image.jpg"
+import Modal from "react-modal"
+import ClientImage from "/client-image.jpg"
+import ProfileImage from "/profile-image.jpg"
 import StackImage from "../assets/stack.svg"
 import TaskImage from "../assets/tasks.svg"
 import AttachImage from "../assets/Attach.svg"
 import CommentImage from "../assets/Comment.svg"
 import CalendarImage from "../assets/Calendar.svg"
-import Profile1 from "/public/extra-profile-1.jpg"
-import Profile2 from "/public/extra-profile-2.jpg"
+import Profile1 from "/extra-profile-1.jpg"
+import Profile2 from "/extra-profile-2.jpg"
+import { useState } from "react"
+
+// TODO: Fix design
+
+Modal.setAppElement('#root')
 
 const Card = () => {
   const date = new Date();
+  const [isOpen, setIsOpen] = useState(false)
+
+  function toggleModal () {
+    setIsOpen(!isOpen)
+  }
+
     return (
         <>
+          <Modal
+            isOpen={isOpen}
+            shouldCloseOnOverlayClick={true}
+            shouldCloseOnEsc={true}
+            onRequestClose={toggleModal}
+            role={"dialog"}
+          >
+            <p>Content</p>
+            <p onClick={toggleModal}>close</p>
+          </Modal>
+
           <CardContainer>
             <RowContainer>
             <ProfileStyles>
@@ -46,7 +69,7 @@ const Card = () => {
                 <p>15</p>
                 </RowContainer>
               <RowContainer>
-              <Image src={AttachImage} alt="attach" />
+                <Image onClick={toggleModal} src={AttachImage} alt="attach" />
                 <p>23</p>
                 </RowContainer>
               <RowContainer>
