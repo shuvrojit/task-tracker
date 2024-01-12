@@ -19,6 +19,31 @@ const Card = () => {
   const date = new Date();
   const [isOpen, setIsOpen] = useState(false)
 
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  const handleFileChange = (e) => {
+    setSelectedFiles([...selectedFiles, ...e.target.files]);
+  };
+
+  const handleUpload = async () => {
+    try {
+      const formData = new FormData();
+
+      for (let i = 0; i < selectedFiles.length; i++) {
+        formData.append('files', selectedFiles[i]);
+      }
+
+      const response = await fetch('http://localhost:5000/upload-files', {
+        method: 'POST',
+        body: formData,
+      });
+
+      console.log('Upload successful', response);
+    } catch (error) {
+      console.error('Error uploading files', error);
+    }
+  };
+
   function toggleModal () {
     setIsOpen(!isOpen)
   }
@@ -32,8 +57,9 @@ const Card = () => {
             onRequestClose={toggleModal}
             role={"dialog"}
           >
-            <p>Content</p>
             <p onClick={toggleModal}>close</p>
+              <input onChange={handleFileChange} type="file" multiple />
+              <button onClick={handleUpload}> Upload</button>
           </Modal>
 
           <CardContainer>
