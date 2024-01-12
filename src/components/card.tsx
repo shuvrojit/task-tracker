@@ -9,7 +9,7 @@ import CommentImage from "../assets/Comment.svg"
 import CalendarImage from "../assets/Calendar.svg"
 import Profile1 from "/extra-profile-1.jpg"
 import Profile2 from "/extra-profile-2.jpg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 // TODO: Fix design
 
@@ -20,6 +20,7 @@ const Card = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [fileLists, setfileLists] = useState([]);
 
   const handleFileChange = (e) => {
     setSelectedFiles([...selectedFiles, ...e.target.files]);
@@ -44,6 +45,20 @@ const Card = () => {
     }
   };
 
+  useEffect(() => {
+    getFiles()
+  }, [selectedFiles, isOpen])
+
+  async function getFiles () {
+    try {
+    const response = await fetch("http://localhost:5000/files")
+      const data = await response.json()
+      setfileLists(data.files)
+    } catch(e) {
+      console.error(e)
+    }
+  }
+
   function toggleModal () {
     setIsOpen(!isOpen)
   }
@@ -52,12 +67,22 @@ const Card = () => {
         <>
           <Modal
             isOpen={isOpen}
+            // onAfterOpen={getFiles}
             shouldCloseOnOverlayClick={true}
             shouldCloseOnEsc={true}
             onRequestClose={toggleModal}
             role={"dialog"}
           >
             <p onClick={toggleModal}>close</p>
+
+            {fileLists.map((d, i) => {
+              return (
+               <>
+                 <p>{d}</p>
+               </>
+              )
+            })}
+
               <input onChange={handleFileChange} type="file" multiple />
               <button onClick={handleUpload}> Upload</button>
           </Modal>
@@ -96,7 +121,7 @@ const Card = () => {
                 </RowContainer>
               <RowContainer>
                 <Image onClick={toggleModal} src={AttachImage} alt="attach" />
-                <p>23</p>
+                <p>{fileLists.length}</p>
                 </RowContainer>
               <RowContainer>
               <Image src={CalendarImage} alt="calendar" />
