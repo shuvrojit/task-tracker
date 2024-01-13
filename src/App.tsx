@@ -6,9 +6,12 @@ import styled from "styled-components"
 
 function App() {
   const filteredData = []
-  const upcoming = data.filter((d) => d.status === "Upcoming")
   const incomplete = data.filter((d) => d.status === "Incomplete")
   const todo = data.filter((d) => d.status === "To Do")
+  const overdue = data.filter((d) => d.status === "Overdue")
+  const doing = data.filter((d) => d.status === "Doing")
+  const under_review = data.filter((d) => d.status === "Under Review")
+  const completed = data.filter((d) => d.status === "Completed")
 
   function pushFiltered(title: string, data ) {
   filteredData.push({
@@ -17,9 +20,12 @@ function App() {
   })
   }
 
-  pushFiltered("Upcoming", upcoming)
   pushFiltered("Incomplete", incomplete)
   pushFiltered("To Do", todo)
+  pushFiltered("Doing", doing)
+  pushFiltered("Under Review", under_review)
+  pushFiltered("Completed", completed)
+  pushFiltered("Overdue", overdue)
 
 
   return (
