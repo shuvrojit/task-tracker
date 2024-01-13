@@ -1,11 +1,15 @@
-import { useState } from "react"
 import Column from "./components/Column"
-import Card from "./components/card"
 import data from "../data"
 import styled from "styled-components"
+import {CardData} from "../data"
+
+export interface FilteredData {
+  title: string,
+  data: CardData[],
+}
 
 function App() {
-  const filteredData = []
+  const filteredData: FilteredData[] = []
   const incomplete = data.filter((d) => d.status === "Incomplete")
   const todo = data.filter((d) => d.status === "To Do")
   const overdue = data.filter((d) => d.status === "Overdue")
@@ -13,7 +17,7 @@ function App() {
   const under_review = data.filter((d) => d.status === "Under Review")
   const completed = data.filter((d) => d.status === "Completed")
 
-  function pushFiltered(title: string, data ) {
+  function pushFiltered(title: string, data: CardData[] ) {
   filteredData.push({
     title: `${title}`,
     data: data,
@@ -33,9 +37,9 @@ function App() {
       <MainContainer>
 
       {
-        filteredData.map((d, i) => {
+        filteredData.map((filData: FilteredData, i: number) => {
           return (
-            <Column props={d} key={i}/>
+            <Column {...filData} key={i}/>
           )
 
         })

@@ -1,4 +1,4 @@
-function formatDate(date) {
+function formatDate(date: string) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
@@ -14,7 +14,7 @@ function formatDate(date) {
 
 const date = formatDate('Sun May 11,2024');
 
-interface CardData {
+export interface CardData {
   client_name: string,
   client_image: string
   profile_name: string,
@@ -23,11 +23,11 @@ interface CardData {
   total: number,
   done: number,
   comments: number,
-  date: Date,
+  date: string,
   status: string,
 }
 
-const data: CardData = [
+const data: CardData[] = [
   {
     client_name: "Client Name",
     client_image: "/client-image.jpg",

@@ -9,21 +9,21 @@ import CommentImage from "../assets/Comment.svg"
 import CalendarImage from "../assets/Calendar.svg"
 import Profile1 from "/extra-profile-1.jpg"
 import Profile2 from "/extra-profile-2.jpg"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import  Cross from "../assets/Cross.svg"
+import {CardData} from "../../data"
 
-// TODO: Fix design
 
 Modal.setAppElement('#root')
 
-const Card = (props) => {
+const Card = (data: CardData ) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const [fileLists, setfileLists] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState<(string | File)[]>([]);
+  const [fileLists, setFileLists] = useState<string[]>([]);
 
-  const handleFileChange = (e) => {
-    setSelectedFiles([...selectedFiles, ...e.target.files]);
+  const handleFileChange = async (e: React.ChangeEvent) => {
+    setSelectedFiles([...selectedFiles, ...(e.target as HTMLInputElement).files as FileList ]);
   };
 
   const handleUpload = async () => {
@@ -34,12 +34,12 @@ const Card = (props) => {
         formData.append('files', selectedFiles[i]);
       }
 
-      const response = await fetch('http://localhost:5000/upload-files', {
+      const response = await fetch('https://task-tracker-bt10.onrender.com/upload-files', {
         method: 'POST',
         body: formData,
       });
 
-      console.log('Upload successful', response);
+      // console.log('Upload successful', response);
     } catch (error) {
       console.error('Error uploading files', error);
     }
@@ -52,9 +52,9 @@ const Card = (props) => {
 
   async function getFiles () {
     try {
-    const response = await fetch("http://localhost:5000/files")
+      const response = await fetch("https://task-tracker-bt10.onrender.com/files", {mode: "cors"})
       const data = await response.json()
-      setfileLists(data.files)
+      setFileLists(data.files)
     } catch(e) {
       console.error(e)
     }
@@ -139,7 +139,7 @@ const Card = (props) => {
                 </RowContainer>
               <RowContainer>
               <Image src={CalendarImage} alt="calendar" />
-                <p>{props.data.date}</p>
+                <p>{data.date}</p>
 
               </RowContainer>
             </RowContainer>

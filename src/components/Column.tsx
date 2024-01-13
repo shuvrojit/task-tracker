@@ -1,20 +1,23 @@
 import Card from "./card"
 import styled from "styled-components"
+import {FilteredData} from "../App"
+import {CardData} from "../../data"
 
-const Column = ({props}) => {
+
+const Column = (filData: FilteredData) => {
 
   return (
     <>
       <ColumnContainer >
         <RowContainer>
-      <h2>{props.title}</h2>
+      <h2>{filData.title}</h2>
           <p>0</p>
         </RowContainer>
         <div className="column-container">
       {
-        props.data.map((d, i) => {
+        filData.data.map((data: CardData, i: number) => {
           return (
-            <Card key={i} data={d} />
+            <Card key={i} {...data} />
           )
         })
       }
