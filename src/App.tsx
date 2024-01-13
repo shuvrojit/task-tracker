@@ -49,5 +49,7 @@ export default App
 
 const MainContainer = styled.div`
 display: flex;
+height: 96vh;
+width: 200vw;
 flex-direction: row;
 `

@@ -9,3 +9,30 @@
 body {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
+
+.column-container {
+    overflow-y: scroll;
+    overflow-x: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.column-container::-webkit-scrollbar {
+    width: 0.5rem;
+    /* background-color: red; */
+}
+
+/* .column-container::-webkit-scrollbar-track { */
+/*     width: 0.2rem; */
+/*     background-color: purple; */
+/* } */
+
+.column-container::-webkit-scrollbar-thumb {
+  background-color: #0070BC;
+  /* outline: 1px solid slategrey; */
+    border-radius: 8px;
+}
+
+/* .column-container: { */
+
+/* } */

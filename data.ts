@@ -1,3 +1,18 @@
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+const date = formatDate('Sun May 11,2024');
 
 interface CardData {
   client_name: string,
@@ -22,7 +37,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -34,7 +49,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -46,7 +61,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -58,7 +73,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -70,7 +85,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -82,7 +97,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -94,7 +109,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -106,7 +121,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -118,7 +133,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -130,7 +145,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -142,7 +157,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -154,7 +169,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -166,7 +181,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -178,7 +193,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -190,7 +205,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -202,7 +217,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -214,7 +229,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Under Review",
   },
 {
@@ -226,7 +241,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -238,7 +253,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -250,7 +265,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -262,7 +277,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -274,7 +289,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -286,7 +301,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -298,7 +313,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -310,7 +325,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Completed",
   },
 {
@@ -322,7 +337,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Overdue",
   },
 {
@@ -334,7 +349,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -346,7 +361,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Under Review",
   },
 {
@@ -358,7 +373,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -370,7 +385,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -382,7 +397,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -394,7 +409,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -406,7 +421,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -418,7 +433,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -430,7 +445,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Under Review",
   },
 {
@@ -442,7 +457,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -454,7 +469,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Completed",
   },
 {
@@ -466,7 +481,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -478,7 +493,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -490,7 +505,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -502,7 +517,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -514,7 +529,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -526,7 +541,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Overdue",
   },
 {
@@ -538,7 +553,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -550,7 +565,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Under Review",
   },
 {
@@ -562,7 +577,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -574,7 +589,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -586,7 +601,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -598,7 +613,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -610,7 +625,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -622,7 +637,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -634,7 +649,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -646,7 +661,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Doing",
   },
 {
@@ -658,7 +673,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -670,7 +685,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 {
@@ -682,7 +697,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Completed",
   },
 {
@@ -694,7 +709,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Under Review",
   },
 {
@@ -706,7 +721,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -718,7 +733,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "Incomplete",
   },
 {
@@ -730,7 +745,7 @@ const data: CardData = [
     comments: 45,
     total: 2,
     done:1,
-    date: Date.now(),
+    date: date,
     status: "To Do",
   },
 

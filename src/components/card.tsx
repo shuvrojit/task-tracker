@@ -10,13 +10,13 @@ import CalendarImage from "../assets/Calendar.svg"
 import Profile1 from "/extra-profile-1.jpg"
 import Profile2 from "/extra-profile-2.jpg"
 import { useEffect, useState } from "react"
+import  Cross from "../assets/Cross.svg"
 
 // TODO: Fix design
 
 Modal.setAppElement('#root')
 
 const Card = (props) => {
-  const date = new Date();
   const [isOpen, setIsOpen] = useState(false)
 
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -72,8 +72,14 @@ const Card = (props) => {
             shouldCloseOnEsc={true}
             onRequestClose={toggleModal}
             role={"dialog"}
+            // style={{
+              // overlay: {
+                // width: "900px",
+                // height: "600px",
+              // }
+            // }}
           >
-            <p onClick={toggleModal}>close</p>
+            <img style={{position: "absolute", top: "1rem", right: "1rem", width: "3rem", height: "3rem"}} src={Cross} alt="cross" onClick={toggleModal} />
 
             {fileLists.map((d, i) => {
               return (
@@ -89,7 +95,7 @@ const Card = (props) => {
 
           <CardContainer>
             <RowContainer>
-            <ProfileStyles>
+              <ProfileStyles>
                 <Image src={ClientImage} alt="client-image" />
                 <h3>Client Name</h3>
             </ProfileStyles>
@@ -104,7 +110,7 @@ const Card = (props) => {
               <img src={StackImage} alt="stack" />
               <p>Nunc eleifend leo vitae magna...</p>
             </Wrapper>
-              <Wrapper style={{backgroundColor: "grey"}}>
+              <Wrapper style={{backgroundColor: "#F2F4F7"}}>
               <img src={TaskImage} alt="tasks" />
               <p>1/2</p>
             </Wrapper>
@@ -125,7 +131,7 @@ const Card = (props) => {
                 </RowContainer>
               <RowContainer>
               <Image src={CalendarImage} alt="calendar" />
-                <p>{date.toDateString()}</p>
+                <p>{props.data.date}</p>
 
               </RowContainer>
             </RowContainer>
@@ -138,18 +144,19 @@ const Card = (props) => {
 export default Card
 
 const Image = styled.img`
-width: 1.8rem;
-height: 1.8rem;
+width: 1.6rem;
+height: 1.6rem;
 border-radius: 50%;
 object-fit: cover;
 `
 
 const Elipse = styled.div`
-width: 1.8rem;
-height: 1.8rem;
+width: 1.6rem;
+height: 1.6rem;
 border-radius: 50%;
-background-color: grey;
+background-color: #F2F4F7;
 display: flex;
+color: black;
 justify-content: center;
 align-items: center;
 font-size: 0.8rem;
@@ -159,8 +166,8 @@ font-size: 0.8rem;
 
 const ProfileStyles = styled.div`
 h3 {
-font-size: 1rem;
-font-weight: 500;
+font-size: 0.9rem;
+font-weight: 600;
 }
 display: flex;
 flex-direction: row;
@@ -169,9 +176,14 @@ gap: 0.5rem;
 `
 
 const CardContainer = styled.div`
-width: 400px;
+width: 328px;
 height: 120px;
-border: 0.5px solid grey;
+border-radius: 4px;
+background-color: white;
+font-size: 0.9rem;
+margin: 0.5rem ;
+padding: 0.5rem;
+
 `
 
 const RowContainer = styled.div`
@@ -179,11 +191,14 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-margin: 0.5rem;
+margin: 0.5rem 0;
 `
 
 const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
+p {
+font-size: 0.9rem;
+}
 `
