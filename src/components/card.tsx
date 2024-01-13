@@ -39,7 +39,7 @@ const Card = (data: CardData ) => {
         body: formData,
       });
 
-      // console.log('Upload successful', response);
+      console.log('Upload successful', response);
     } catch (error) {
       console.error('Error uploading files', error);
     }
