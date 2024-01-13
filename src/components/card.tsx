@@ -15,7 +15,7 @@ import { useEffect, useState } from "react"
 
 Modal.setAppElement('#root')
 
-const Card = () => {
+const Card = (props) => {
   const date = new Date();
   const [isOpen, setIsOpen] = useState(false)
 
